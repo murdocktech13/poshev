@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Add-Ons - POSH EV</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-white': '#ffffff',
+                        'luxury-black': '#000000',
+                        'luxury-gray': '#1a1a1a',
+                        'luxury-silver': '#f5f5f5',
+                        'accent-gray': '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-inter">
+    
+    <!-- Header Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-8 w-auto">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="add-ons.html" class="text-white border-b border-white">Add-Ons</a>
+                    <a href="index.html#memberships" class="hover:text-white transition-colors">Memberships</a>
+                    <a href="index.html#booking" class="hover:text-white transition-colors">Book Now</a>
+                    <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-luxury-gray border-t border-white/30 hidden">
+            <div class="px-4 py-4 space-y-4">
+                <a href="index.html#services" class="block hover:text-white transition-colors">Services</a>
+                <a href="add-ons.html" class="block text-white">Add-Ons</a>
+                <a href="index.html#memberships" class="block hover:text-white transition-colors">Memberships</a>
+                <a href="index.html#booking" class="block hover:text-white transition-colors">Book Now</a>
+                <a href="index.html#contact" class="block hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-black via-luxury-gray to-black opacity-90"></div>
+        <div class="absolute inset-0 bg-[url('https://page.gensparksite.com/v1/base64_upload/316850b2d39b2b8d86c74e2d1664c172')] bg-cover bg-center"></div>
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+            <div class="mb-8">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-24 md:h-32 w-auto">
+                </div>
+                <h2 class="text-xl md:text-2xl font-medium mb-8 text-white tracking-wider text-center">
+                    LUXURY ADD-ONS & EXPERIENCES
+                </h2>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight">
+                <span class="text-white">Elevate Your Journey</span><br>
+                <span class="text-white">Beyond Expectations</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Enhance your luxury electric transportation experience with our curated selection of premium add-ons, featuring world-class champagne and wine collections.
+            </p>
+            
+            <div class="mt-12">
+                <a href="#packages" class="inline-block bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-colors transform hover:scale-105 rounded-lg">
+                    Explore Luxury Add-Ons
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Champagne Packages Section -->
+    <section id="packages" class="py-20 bg-luxury-gray">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Premium <span class="text-white">Champagne Packages</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Celebrate life's moments with the finest champagne selections, perfectly chilled and served during your luxury journey.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Classic Champagne Package -->
+                <div class="bg-black rounded-xl p-8 border border-gray-700 hover:border-white transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-champagne-glasses text-4xl text-white mb-4"></i>
+                        <h3 class="text-2xl font-playfair font-bold mb-2">Classic Elegance</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$150</div>
+                        <p class="text-gray-300">Perfect for special occasions and celebrations</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Premium Moët & Chandon Brut Imperial</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Crystal champagne flutes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Gourmet shortbread cookies</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Professional service presentation</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+                        Add to Booking
+                    </button>
+                </div>
+                
+                <!-- Premium Champagne Package -->
+                <div class="bg-black rounded-xl p-8 border border-white relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-white text-black px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                    </div>
+                    
+                    <div class="text-center mb-6">
+                        <i class="fas fa-crown text-4xl text-white mb-4"></i>
+                        <h3 class="text-2xl font-playfair font-bold mb-2">Royal Experience</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$250</div>
+                        <p class="text-gray-300">The ultimate champagne experience for discerning clients</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Dom Pérignon Vintage Champagne</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Baccarat crystal champagne flutes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Artisanal French macarons</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Luxury chocolate truffles</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>White-glove presentation service</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+                        Add to Booking
+                    </button>
+                </div>
+                
+                <!-- Prestige Champagne Package -->
+                <div class="bg-black rounded-xl p-8 border border-gray-700 hover:border-white transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-gem text-4xl text-white mb-4"></i>
+                        <h3 class="text-2xl font-playfair font-bold mb-2">Prestige Collection</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$400</div>
+                        <p class="text-gray-300">Exclusive vintage champagne for connoisseurs</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Krug Grande Cuvée or vintage selection</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Hand-blown crystal flutes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Caviar service with mother-of-pearl spoons</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Luxury canapé selection</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Personal sommelier consultation</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+                        Add to Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wine Packages Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Curated <span class="text-white">Wine Packages</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Discover exceptional wines from renowned vineyards around the world, expertly selected and served at the perfect temperature.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Executive Wine Selection -->
+                <div class="bg-luxury-gray rounded-xl p-8 border border-gray-700 hover:border-white transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-wine-glass-alt text-4xl text-white mb-4"></i>
+                        <h3 class="text-2xl font-playfair font-bold mb-2">Executive Selection</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$125</div>
+                        <p class="text-gray-300">Premium wines for the sophisticated palate</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Choice of premium red or white wine</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Bordeaux, Burgundy, or Napa Valley selections</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Professional wine glasses</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Artisan cheese and crackers</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Temperature-controlled service</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+                        Add to Booking
+                    </button>
+                </div>
+                
+                <!-- Vintage Wine Experience -->
+                <div class="bg-luxury-gray rounded-xl p-8 border border-gray-700 hover:border-white transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-wine-bottle text-4xl text-white mb-4"></i>
+                        <h3 class="text-2xl font-playfair font-bold mb-2">Vintage Experience</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$300</div>
+                        <p class="text-gray-300">Rare vintage wines from exclusive collections</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Rare vintage wines (10+ years aged)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Château Margaux, Opus One, or equivalent</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Riedel crystal wine glasses</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Gourmet charcuterie board</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Professional wine decanting service</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-white mr-3"></i>
+                            <span>Sommelier tasting notes included</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+                        Add to Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Luxury Services -->
+    <section class="py-20 bg-luxury-gray">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Additional <span class="text-white">Luxury Services</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Personalize your experience with our exclusive concierge services and luxury amenities.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-black rounded-xl p-6 text-center border border-gray-700 hover:border-white transition-all">
+                    <i class="fas fa-music text-3xl text-white mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Custom Playlist</h3>
+                    <p class="text-gray-300 text-sm mb-4">Curated music experience tailored to your preferences</p>
+                    <div class="text-xl font-bold text-white">$25</div>
+                </div>
+                
+                <div class="bg-black rounded-xl p-6 text-center border border-gray-700 hover:border-white transition-all">
+                    <i class="fas fa-thermometer-half text-3xl text-white mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Climate Control</h3>
+                    <p class="text-gray-300 text-sm mb-4">Personalized temperature settings for optimal comfort</p>
+                    <div class="text-xl font-bold text-white">Included</div>
+                </div>
+                
+                <div class="bg-black rounded-xl p-6 text-center border border-gray-700 hover:border-white transition-all">
+                    <i class="fas fa-wifi text-3xl text-white mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Premium WiFi</h3>
+                    <p class="text-gray-300 text-sm mb-4">High-speed internet connectivity throughout your journey</p>
+                    <div class="text-xl font-bold text-white">Included</div>
+                </div>
+                
+                <div class="bg-black rounded-xl p-6 text-center border border-gray-700 hover:border-white transition-all">
+                    <i class="fas fa-newspaper text-3xl text-white mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Digital Magazines</h3>
+                    <p class="text-gray-300 text-sm mb-4">Access to premium publications and news</p>
+                    <div class="text-xl font-bold text-white">$15</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">
+                Ready to Create<br>
+                <span class="text-white">Your Perfect Journey?</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Combine our luxury electric transportation with premium add-ons for an unforgettable experience.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#booking" class="bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-colors rounded-lg">
+                    Book with Add-Ons
+                </a>
+                <a href="tel:+15555555555" class="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-black transition-colors rounded-lg">
+                    Speak to Concierge
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-black py-8 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                     alt="POSH EV" 
+                     class="h-8 w-auto">
+            </div>
+            <p class="text-gray-400">Luxury Electric Chauffeur & Concierge Services</p>
+            
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-6 my-4">
+                <a href="https://www.facebook.com/share/17EGFU1Y2J/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="https://twitter.com/poshev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                    <span class="sr-only">Twitter</span>
+                </a>
+                <a href="https://instagram.com/poshevllc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-instagram text-xl"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://linkedin.com/company/poshev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+            </div>
+            
+            <p class="text-gray-400">&copy; 2025 POSH EV. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.className = 'fas fa-bars text-xl';
+                    } else {
+                        icon.className = 'fas fa-times text-xl';
+                    }
+                }
+            });
+        }
+
+        // Add to booking functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Add to Booking')) {
+                button.addEventListener('click', function() {
+                    // Store selected add-on in sessionStorage for booking page
+                    const packageName = this.closest('.bg-black, .bg-luxury-gray').querySelector('h3').textContent;
+                    const packagePrice = this.closest('.bg-black, .bg-luxury-gray').querySelector('.text-3xl').textContent;
+                    
+                    sessionStorage.setItem('selectedAddon', JSON.stringify({
+                        name: packageName,
+                        price: packagePrice
+                    }));
+                    
+                    // Redirect to booking page
+                    window.location.href = 'index.html#booking';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSH EV Services - Luxury Electric Transportation</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-white': '#ffffff',
+                        'luxury-black': '#000000',
+                        'luxury-gray': '#1a1a1a',
+                        'luxury-silver': '#f5f5f5',
+                        'accent-gray': '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-inter">
+    
+    <!-- Header Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-8 w-auto">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="index.html#memberships" class="hover:text-white transition-colors">About</a>
+                    <a href="index.html#booking" class="hover:text-white transition-colors">Book Now</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-black via-luxury-gray to-black opacity-90"></div>
+        <div class="absolute inset-0 bg-[url('https://page.gensparksite.com/v1/base64_upload/316850b2d39b2b8d86c74e2d1664c172')] bg-cover bg-center"></div>
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+            <div class="mb-8">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-24 md:h-32 w-auto">
+                </div>
+                <h2 class="text-xl md:text-2xl font-medium mb-8 text-white tracking-wider text-center">
+                    CHAUFFEUR and CONCIERGE SERVICES
+                </h2>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-playfair font-bold mb-6 leading-tight">
+                <span class="text-white">An All-Electric,</span><br>
+                <span class="text-white">All-Class Experience</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                The next level of luxury ground transportation. POSH EV combines opulence and eco-consciousness to transform your journey into the ultimate luxury experience.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
+                <div class="bg-black/50 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fas fa-leaf text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">All-Electric Fleet</h3>
+                    <p class="text-gray-300">Experience the future with our exclusive Mercedes EQS electric vehicles - silent, luxurious, and environmentally conscious.</p>
+                </div>
+                
+                <div class="bg-black/50 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fas fa-concierge-bell text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Concierge Service</h3>
+                    <p class="text-gray-300">White-glove service that anticipates your every need. From luggage handling to premium refreshments and personalized preferences.</p>
+                </div>
+                
+                <div class="bg-black/50 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fas fa-star text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">VIP Experience</h3>
+                    <p class="text-gray-300">Chosen for their refined style and commitment to excellence, our chauffeurs deliver unparalleled service for an extraordinary journey.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <a href="index.html#booking" class="inline-block bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-colors transform hover:scale-105 rounded-lg">
+                    Book Your Ride
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Showcase -->
+    <section class="py-20 bg-luxury-gray">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <!-- Airport Transfer -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://page.gensparksite.com/v1/base64_upload/30c2963b0116ad42e66280212e9ebc1c" 
+                             alt="Airport Transfer Service" 
+                             class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-playfair font-bold mb-6">Airport Transfer</h2>
+                        <div class="text-3xl font-bold text-white mb-4">$225</div>
+                        <p class="text-lg text-gray-300 mb-6">One-way luxury airport transportation up to 60 miles. Professional chauffeur service with luggage handling and complimentary snacks and beverages.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-white mr-3"></i>
+                                <span>Professional chauffeur service</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-white mr-3"></i>
+                                <span>Luxury Mercedes EQS electric vehicle</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-white mr-3"></i>
+                                <span>Complimentary luggage handling</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-white mr-3"></i>
+                                <span>Premium snacks and beverages</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hourly Services -->
+            <div class="mb-20">
+                <h2 class="text-4xl font-playfair font-bold text-center mb-12">Hourly <span class="text-white">Services</span></h2>
+                <p class="text-center text-xl text-gray-300 mb-12">3 hour minimum for all hourly bookings</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-black rounded-xl p-6 border border-white/20 text-center">
+                        <h3 class="text-2xl font-bold mb-2">3 Hours</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$675</div>
+                        <p class="text-gray-300">Perfect for short city tours or business meetings</p>
+                    </div>
+                    
+                    <div class="bg-black rounded-xl p-6 border border-white/20 text-center">
+                        <h3 class="text-2xl font-bold mb-2">4 Hours</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$900</div>
+                        <p class="text-gray-300">Extended business or leisure travel</p>
+                    </div>
+                    
+                    <div class="bg-black rounded-xl p-6 border border-white/20 text-center">
+                        <h3 class="text-2xl font-bold mb-2">8 Hours</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$1,800</div>
+                        <p class="text-gray-300">Half day coverage</p>
+                        <div class="mt-2 text-sm text-white">HALF DAY</div>
+                    </div>
+                    
+                    <div class="bg-black rounded-xl p-6 border border-white/20 text-center">
+                        <h3 class="text-2xl font-bold mb-2">12 Hours</h3>
+                        <div class="text-3xl font-bold text-white mb-4">$2,700</div>
+                        <p class="text-gray-300">Full day executive service</p>
+                        <div class="mt-2 text-sm text-white">FULL DAY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes EQS Feature -->
+            <div class="mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="text-4xl font-playfair font-bold mb-6">
+                            Luxury Rides with Our<br>
+                            <span class="text-white">Mercedes EQS Partners</span>
+                        </h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Experience the future of luxury travel with our exclusive chauffeur service, featuring a modern and eco-friendly fleet of Mercedes EQS electric vehicles. Elevate with sophistication and sustainability.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div>
+                                <div class="text-2xl font-bold text-white">Silent</div>
+                                <p class="text-sm text-gray-400">Whisper-quiet electric drive</p>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-white">Luxury</div>
+                                <p class="text-sm text-gray-400">Premium interior amenities</p>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-white">Eco-Friendly</div>
+                                <p class="text-sm text-gray-400">Zero emissions luxury</p>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-white">Advanced</div>
+                                <p class="text-sm text-gray-400">Cutting-edge technology</p>
+                            </div>
+                        </div>
+                        <a href="index.html#booking" class="bg-white text-black px-8 py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+                            Book Now
+                        </a>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/9d37ec98f8c633356284d057ddb30678" 
+                             alt="Mercedes EQS Interior" 
+                             class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Mobile App Preview -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-playfair font-bold mb-6">
+                        Book On-the-Go with<br>
+                        <span class="text-white">Our Mobile App</span>
+                    </h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-suitcase text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Request Luggage Handling</h3>
+                                <p class="text-gray-300">Professional assistance with your luggage and personal items.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-calendar-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Schedule an Errand</h3>
+                                <p class="text-gray-300">Let our concierge team handle your personal errands while you travel.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-plus text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Make a Reservation</h3>
+                                <p class="text-gray-300">Easy booking with real-time availability and instant confirmation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/5dccd62563f7c774943991f2fec8bba1" 
+                         alt="POSH EV Mobile App" 
+                         class="max-w-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-luxury-gray">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">
+                Ready to Experience<br>
+                <span class="text-white">Electric Luxury?</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join the future of sustainable luxury transportation. Book your POSH EV experience today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#booking" class="bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-colors rounded-lg">
+                    Book Your Ride
+                </a>
+                <a href="tel:+15555555555" class="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-black transition-colors rounded-lg">
+                    Call (555) 555-5555
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-black py-8 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                     alt="POSH EV" 
+                     class="h-8 w-auto">
+            </div>
+            <p class="text-gray-400">Luxury Electric Chauffeur & Concierge Services</p>
+            
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-6 my-4">
+                <a href="https://www.facebook.com/share/17EGFU1Y2J/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="https://twitter.com/poshev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                    <span class="sr-only">Twitter</span>
+                </a>
+                <a href="https://instagram.com/poshevllc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-instagram text-xl"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://linkedin.com/company/poshev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+            </div>
+            
+            <p class="text-gray-400">&copy; 2025 POSH EV. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

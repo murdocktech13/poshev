@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSH EV - Luxury Electric Chauffeur Services</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Flatpickr for Calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-white': '#ffffff',
+                        'luxury-black': '#000000',
+                        'luxury-gray': '#1a1a1a',
+                        'luxury-silver': '#f5f5f5',
+                        'accent-gray': '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-inter">
+    
+    <!-- Header Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-8 w-auto">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#memberships" class="hover:text-white transition-colors">Memberships</a>
+                    <a href="#booking" class="hover:text-white transition-colors">Book Now</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-luxury-black border-t border-white hidden">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#services" class="block hover:text-white transition-colors">Services</a>
+                <a href="#memberships" class="block hover:text-white transition-colors">Memberships</a>
+                <a href="#booking" class="block hover:text-white transition-colors">Book Now</a>
+                <a href="#contact" class="block hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-black via-luxury-gray to-black opacity-90"></div>
+        <div class="absolute inset-0 bg-[url('https://page.gensparksite.com/v1/base64_upload/316850b2d39b2b8d86c74e2d1664c172')] bg-cover bg-center"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <div class="mb-8">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-24 md:h-32 w-auto">
+                </div>
+                <h2 class="text-xl md:text-2xl font-medium mb-4 text-white tracking-wider text-center">
+                    CHAUFFEUR and CONCIERGE SERVICES
+                </h2>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-playfair font-bold mb-6">
+                <span class="text-white">Luxury Electric Rides</span><br>
+                <span class="text-white">Redefined</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                Experience the future of luxury travel with our exclusive all-electric Mercedes EQS fleet. Elevate with sophistication and sustainability.
+            </p>
+            <a href="#booking" class="inline-block bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-gray-200 transition-colors transform hover:scale-105 rounded-lg">
+                Reserve Your Experience
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-luxury-gray">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Our <span class="text-white">Services</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Experience luxury travel with our all-electric Mercedes EQS fleet. Professional chauffeur service with concierge-level attention to detail.</p>
+            </div>
+            
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Memberships Section -->
+    <section id="memberships" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Exclusive <span class="text-white">Memberships</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Join our elite membership program for luxury electric transportation with preferential rates, priority booking, and exclusive concierge benefits.</p>
+            </div>
+            
+            <div id="memberships-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Memberships will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-luxury-gray">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Make a <span class="text-white">Reservation</span></h2>
+                <p class="text-xl text-gray-300">Book your premium transportation experience in just a few simple steps.</p>
+            </div>
+            
+            <div class="bg-black rounded-2xl p-8 shadow-2xl border border-white/20">
+                <form id="booking-form" class="space-y-6">
+                    <!-- Service Selection -->
+                    <div>
+                        <label class="block text-white font-semibold mb-2">Select Service</label>
+                        <select id="service-select" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" required>
+                            <option value="">Choose your service...</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Date & Time Selection -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Date</label>
+                            <input type="text" id="booking-date" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Select date" required>
+                        </div>
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Time</label>
+                            <input type="time" id="booking-time" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Location Details -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Pickup Location</label>
+                            <input type="text" id="pickup-location" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Enter pickup address" required>
+                        </div>
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Destination</label>
+                            <input type="text" id="destination" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Enter destination">
+                        </div>
+                    </div>
+                    
+                    <!-- Passenger Details -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Full Name</label>
+                            <input type="text" id="client-name" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Enter your full name" required>
+                        </div>
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Phone Number</label>
+                            <input type="tel" id="client-phone" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-white font-semibold mb-2">Email Address</label>
+                        <input type="email" id="client-email" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Enter email address" required>
+                    </div>
+                    
+                    <!-- Special Requests -->
+                    <div>
+                        <label class="block text-white font-semibold mb-2">Special Requests</label>
+                        <textarea id="special-requests" rows="3" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none" placeholder="Any special requirements or requests..."></textarea>
+                    </div>
+                    
+                    <!-- Membership -->
+                    <div>
+                        <label class="block text-white font-semibold mb-2">Membership (Optional)</label>
+                        <select id="membership-select" class="w-full bg-luxury-gray border border-gray-600 rounded-lg p-4 text-white focus:border-gray-400 focus:outline-none">
+                            <option value="">No membership</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Price Display -->
+                    <div id="price-display" class="hidden bg-white/10 border border-white/30 rounded-lg p-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-white font-semibold">Total Amount:</span>
+                            <span id="total-price" class="text-2xl font-bold text-white">$0</span>
+                        </div>
+                        <div id="membership-discount" class="hidden text-sm text-green-400 mt-2"></div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" id="submit-booking" class="w-full bg-white text-black py-4 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-colors transform hover:scale-105">
+                        Proceed to Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-luxury-black rounded-2xl p-8 max-w-md w-full border border-white/20">
+                <h3 class="text-2xl font-playfair font-bold mb-6 text-center">Complete Payment</h3>
+                
+                <div class="mb-6">
+                    <div class="bg-luxury-gray rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Service:</span>
+                            <span id="payment-service" class="text-white"></span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Date & Time:</span>
+                            <span id="payment-datetime" class="text-white"></span>
+                        </div>
+                        <div class="flex justify-between items-center font-bold text-lg">
+                            <span>Total:</span>
+                            <span id="payment-total" class="text-white"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stripe Elements will be inserted here -->
+                <div id="card-element" class="bg-luxury-gray p-4 rounded-lg mb-4">
+                    <!-- A Stripe Element will be inserted here. -->
+                </div>
+                
+                <div id="card-errors" class="text-red-500 mb-4" role="alert"></div>
+                
+                <div class="flex gap-4">
+                    <button id="cancel-payment" class="flex-1 bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        Cancel
+                    </button>
+                    <button id="submit-payment" class="flex-1 bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        Pay Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-luxury-black rounded-2xl p-8 max-w-md w-full border border-green-500/20 text-center">
+                <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
+                <h3 class="text-2xl font-playfair font-bold mb-4">Booking Confirmed!</h3>
+                <p class="text-gray-300 mb-6">Thank you for choosing POSH EV. You will receive a confirmation email shortly.</p>
+                <p class="text-sm text-white mb-6">Booking Reference: <span id="booking-reference" class="font-bold"></span></p>
+                <button id="close-success" class="w-full bg-white text-black py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-4">Get in <span class="text-white">Touch</span></h2>
+                <p class="text-xl text-gray-300">Contact us for any inquiries or special arrangements.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-luxury-gray rounded-xl p-8">
+                    <i class="fas fa-phone text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-300">+1 (555) 555-5555</p>
+                </div>
+                
+                <div class="bg-luxury-gray rounded-xl p-8">
+                    <i class="fas fa-envelope text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-300">bookings@poshev.com</p>
+                </div>
+                
+                <div class="bg-luxury-gray rounded-xl p-8">
+                    <i class="fas fa-clock text-3xl text-white mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Available</h3>
+                    <p class="text-gray-300">24/7 Premium Service</p>
+                </div>
+            </div>
+            
+            <!-- Follow Us Section -->
+            <div class="text-center mt-16">
+                <h3 class="text-2xl font-playfair font-bold mb-6">Follow <span class="text-white">POSH EV</span></h3>
+                <div class="flex justify-center space-x-8">
+                    <a href="https://www.facebook.com/share/17EGFU1Y2J/" target="_blank" rel="noopener noreferrer" class="group">
+                        <div class="w-16 h-16 bg-luxury-gray rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                            <i class="fab fa-facebook-f text-2xl text-white group-hover:text-black transition-colors"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Facebook</p>
+                    </a>
+                    <a href="https://twitter.com/poshev" target="_blank" rel="noopener noreferrer" class="group">
+                        <div class="w-16 h-16 bg-luxury-gray rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                            <i class="fab fa-twitter text-2xl text-white group-hover:text-black transition-colors"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Twitter</p>
+                    </a>
+                    <a href="https://instagram.com/poshevllc" target="_blank" rel="noopener noreferrer" class="group">
+                        <div class="w-16 h-16 bg-luxury-gray rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                            <i class="fab fa-instagram text-2xl text-white group-hover:text-black transition-colors"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Instagram</p>
+                    </a>
+                    <a href="https://linkedin.com/company/poshev" target="_blank" rel="noopener noreferrer" class="group">
+                        <div class="w-16 h-16 bg-luxury-gray rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                            <i class="fab fa-linkedin-in text-2xl text-white group-hover:text-black transition-colors"></i>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">LinkedIn</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-black py-8 border-t border-white/20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                     alt="POSH EV" 
+                     class="h-8 w-auto">
+            </div>
+            <p class="text-gray-400">Luxury Electric Chauffeur & Concierge Services</p>
+            
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-6 my-4">
+                <a href="https://www.facebook.com/share/17EGFU1Y2J/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="https://twitter.com/poshev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                    <span class="sr-only">Twitter</span>
+                </a>
+                <a href="https://instagram.com/poshevllc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-instagram text-xl"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://linkedin.com/company/poshev" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+            </div>
+            
+            <p class="text-gray-400">&copy; 2025 POSH EV. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/services.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/payments.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

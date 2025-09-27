@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Demo - Elite Chauffeur Services</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'luxury-gold': '#D4AF37',
+                        'luxury-black': '#1a1a1a',
+                        'luxury-gray': '#2a2a2a',
+                        'luxury-silver': '#C0C0C0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-inter">
+    
+    <!-- Header -->
+    <header class="bg-luxury-black border-b border-luxury-gold/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-crown text-luxury-gold text-2xl mr-3"></i>
+                    <div>
+                        <img src="https://page.gensparksite.com/v1/base64_upload/2aed2981ce676a5598a1f7b507a3d47e" 
+                         alt="POSH EV" 
+                         class="h-6 w-auto">
+                        <p class="text-xs text-gray-400">Admin Dashboard Demo</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm">
+                        <span class="text-gray-400">Last updated:</span>
+                        <span id="last-updated" class="text-luxury-gold">--</span>
+                    </div>
+                    <button id="refresh-data" class="bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+                        <i class="fas fa-sync-alt mr-2"></i>Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Alert Banner -->
+        <div class="bg-gradient-to-r from-white/10 to-gray-300/20 border border-white/30 rounded-lg p-4 mb-8"
+            <div class="flex items-center">
+                <i class="fas fa-info-circle text-white text-xl mr-3"></i>
+                <div>
+                    <h3 class="font-semibold text-white">Demo Mode Active</h3>
+                    <p class="text-sm text-gray-300">This is a demonstration of booking notifications. Real bookings from your website will appear here automatically.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-luxury-gray rounded-xl p-6 border border-gray-700">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Today's Bookings</p>
+                        <p id="todays-bookings" class="text-2xl font-bold text-luxury-gold">0</p>
+                    </div>
+                    <i class="fas fa-calendar-day text-3xl text-luxury-gold opacity-50"></i>
+                </div>
+            </div>
+            
+            <div class="bg-luxury-gray rounded-xl p-6 border border-gray-700">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Pending Assignments</p>
+                        <p id="pending-assignments" class="text-2xl font-bold text-orange-400">0</p>
+                    </div>
+                    <i class="fas fa-clock text-3xl text-orange-400 opacity-50"></i>
+                </div>
+            </div>
+            
+            <div class="bg-luxury-gray rounded-xl p-6 border border-gray-700">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Revenue Today</p>
+                        <p id="revenue-today" class="text-2xl font-bold text-green-400">$0</p>
+                    </div>
+                    <i class="fas fa-dollar-sign text-3xl text-green-400 opacity-50"></i>
+                </div>
+            </div>
+            
+            <div class="bg-luxury-gray rounded-xl p-6 border border-gray-700">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Active Chauffeurs</p>
+                        <p id="active-chauffeurs" class="text-2xl font-bold text-blue-400">5</p>
+                    </div>
+                    <i class="fas fa-users text-3xl text-blue-400 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Bookings -->
+        <div class="bg-luxury-gray rounded-xl border border-gray-700">
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-playfair font-bold">Recent Bookings</h2>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-400">Auto-refresh: <span class="text-luxury-gold">ON</span></span>
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div id="bookings-container">
+                    <!-- Bookings will be populated here -->
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fas fa-inbox text-4xl mb-4 opacity-50"></i>
+                        <p>No bookings yet. New bookings will appear here automatically.</p>
+                        <button id="simulate-booking" class="mt-4 bg-luxury-gold text-black px-6 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
+                            Simulate New Booking
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Booking Detail Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-luxury-black rounded-2xl max-w-2xl w-full border border-luxury-gold/20">
+                <div class="p-6 border-b border-gray-700">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-playfair font-bold">Booking Details</h3>
+                        <button id="close-modal" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="booking-details" class="p-6">
+                    <!-- Booking details will be populated here -->
+                </div>
+                
+                <div class="p-6 border-t border-gray-700 flex gap-4">
+                    <button id="assign-chauffeur" class="flex-1 bg-luxury-gold text-black py-3 rounded-lg hover:bg-yellow-500 transition-colors font-semibold">
+                        <i class="fas fa-user-plus mr-2"></i>Assign Chauffeur
+                    </button>
+                    <button id="contact-client" class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                        <i class="fas fa-phone mr-2"></i>Contact Client
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2">
+        <!-- Toasts will be added here dynamically -->
+    </div>
+
+    <script>
+        // Admin Dashboard Demo Script
+        class AdminDemo {
+            constructor() {
+                this.bookings = this.loadBookings();
+                this.stats = {
+                    todaysBookings: 0,
+                    pendingAssignments: 0,
+                    revenueToday: 0,
+                    activeChauffeurs: 5
+                };
+                this.init();
+            }
+
+            init() {
+                this.updateLastUpdated();
+                this.renderBookings();
+                this.updateStats();
+                this.setupEventListeners();
+                this.startAutoRefresh();
+                
+                console.log('Admin Demo initialized');
+            }
+
+            loadBookings() {
+                // Load bookings from localStorage (from main website)
+                return JSON.parse(localStorage.getItem('bookings') || '[]');
+            }
+
+            setupEventListeners() {
+                // Refresh button
+                document.getElementById('refresh-data')?.addEventListener('click', () => {
+                    this.refreshData();
+                });
+
+                // Simulate booking button
+                document.getElementById('simulate-booking')?.addEventListener('click', () => {
+                    this.simulateNewBooking();
+                });
+
+                // Modal close
+                document.getElementById('close-modal')?.addEventListener('click', () => {
+                    this.closeModal();
+                });
+
+                // Modal backdrop click
+                document.getElementById('booking-modal')?.addEventListener('click', (e) => {
+                    if (e.target.id === 'booking-modal') {
+                        this.closeModal();
+                    }
+                });
+
+                // Action buttons
+                document.getElementById('assign-chauffeur')?.addEventListener('click', () => {
+                    this.assignChauffeur();
+                });
+
+                document.getElementById('contact-client')?.addEventListener('click', () => {
+                    this.contactClient();
+                });
+            }
+
+            refreshData() {
+                this.bookings = this.loadBookings();
+                this.renderBookings();
+                this.updateStats();
+                this.updateLastUpdated();
+                this.showToast('Data refreshed successfully', 'success');
+            }
+
+            renderBookings() {
+                const container = document.getElementById('bookings-container');
+                if (!container) return;
+
+                if (this.bookings.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-12 text-gray-400">
+                            <i class="fas fa-inbox text-4xl mb-4 opacity-50"></i>
+                            <p>No bookings yet. New bookings will appear here automatically.</p>
+                            <button id="simulate-booking" class="mt-4 bg-luxury-gold text-black px-6 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
+                                Simulate New Booking
+                            </button>
+                        </div>
+                    `;
+                    
+                    // Re-attach event listener
+                    document.getElementById('simulate-booking')?.addEventListener('click', () => {
+                        this.simulateNewBooking();
+                    });
+                    return;
+                }
+
+                // Sort bookings by creation date (newest first)
+                const sortedBookings = [...this.bookings].sort((a, b) => 
+                    new Date(b.createdAt) - new Date(a.createdAt)
+                );
+
+                container.innerHTML = sortedBookings.map(booking => `
+                    <div class="booking-card bg-luxury-black border border-gray-700 rounded-lg p-6 mb-4 hover:border-luxury-gold/50 transition-colors cursor-pointer" 
+                         onclick="adminDemo.viewBookingDetails('${booking.id}')">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-${booking.status === 'confirmed' ? 'green' : 'orange'}-400 rounded-full mr-3"></div>
+                                <span class="text-luxury-gold font-semibold">${booking.id}</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-400">${this.formatDate(booking.createdAt)}</div>
+                                <div class="font-semibold text-luxury-gold">$${booking.totalPrice}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <div class="text-sm text-gray-400">Service</div>
+                                <div class="font-medium">${booking.serviceName}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Date & Time</div>
+                                <div class="font-medium">${booking.date} at ${this.formatTime(booking.time)}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Client</div>
+                                <div class="font-medium">${booking.clientName}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="text-sm text-gray-400">Pickup Location</div>
+                            <div class="font-medium">${booking.pickupLocation}</div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 text-sm">
+                                <span class="flex items-center text-gray-400">
+                                    <i class="fas fa-phone mr-1"></i>
+                                    ${booking.clientPhone}
+                                </span>
+                                <span class="flex items-center text-gray-400">
+                                    <i class="fas fa-envelope mr-1"></i>
+                                    ${booking.clientEmail}
+                                </span>
+                            </div>
+                            
+                            <div class="flex items-center space-x-2">
+                                <span class="px-3 py-1 bg-${booking.status === 'confirmed' ? 'green' : 'orange'}-600/20 text-${booking.status === 'confirmed' ? 'green' : 'orange'}-400 rounded-full text-sm capitalize">
+                                    ${booking.status}
+                                </span>
+                                ${booking.status === 'confirmed' ? 
+                                    '<span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-sm">Needs Assignment</span>' : 
+                                    ''
+                                }
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            viewBookingDetails(bookingId) {
+                const booking = this.bookings.find(b => b.id === bookingId);
+                if (!booking) return;
+
+                const modal = document.getElementById('booking-modal');
+                const detailsContainer = document.getElementById('booking-details');
+                
+                if (!modal || !detailsContainer) return;
+
+                detailsContainer.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-luxury-gold border-b border-gray-700 pb-2">Booking Information</h4>
+                            
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Booking ID:</span>
+                                    <span class="font-medium">${booking.id}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Service:</span>
+                                    <span class="font-medium">${booking.serviceName}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Date:</span>
+                                    <span class="font-medium">${booking.date}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Time:</span>
+                                    <span class="font-medium">${this.formatTime(booking.time)}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Status:</span>
+                                    <span class="capitalize px-2 py-1 bg-${booking.status === 'confirmed' ? 'green' : 'orange'}-600/20 text-${booking.status === 'confirmed' ? 'green' : 'orange'}-400 rounded text-sm">${booking.status}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Total Amount:</span>
+                                    <span class="font-bold text-luxury-gold">$${booking.totalPrice}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-luxury-gold border-b border-gray-700 pb-2">Client Information</h4>
+                            
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Name:</span>
+                                    <span class="font-medium">${booking.clientName}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Phone:</span>
+                                    <span class="font-medium">${booking.clientPhone}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Email:</span>
+                                    <span class="font-medium">${booking.clientEmail}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 space-y-4">
+                        <h4 class="text-lg font-semibold text-luxury-gold border-b border-gray-700 pb-2">Trip Details</h4>
+                        
+                        <div class="space-y-2">
+                            <div>
+                                <span class="text-gray-400">Pickup Location:</span>
+                                <div class="font-medium mt-1">${booking.pickupLocation}</div>
+                            </div>
+                            ${booking.destination ? `
+                            <div>
+                                <span class="text-gray-400">Destination:</span>
+                                <div class="font-medium mt-1">${booking.destination}</div>
+                            </div>
+                            ` : ''}
+                            ${booking.specialRequests ? `
+                            <div>
+                                <span class="text-gray-400">Special Requests:</span>
+                                <div class="font-medium mt-1 bg-luxury-gray p-3 rounded">${booking.specialRequests}</div>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+
+                modal.classList.remove('hidden');
+            }
+
+            closeModal() {
+                const modal = document.getElementById('booking-modal');
+                if (modal) {
+                    modal.classList.add('hidden');
+                }
+            }
+
+            assignChauffeur() {
+                // Simulate chauffeur assignment
+                this.showToast('Chauffeur assignment feature coming in Phase 2', 'info');
+            }
+
+            contactClient() {
+                // Simulate client contact
+                this.showToast('Client communication tools coming in Phase 2', 'info');
+            }
+
+            simulateNewBooking() {
+                const simulatedBooking = {
+                    id: 'EC-' + Date.now().toString(36).toUpperCase() + '-DEMO',
+                    serviceId: 'airport-transfer',
+                    serviceName: 'Airport Transfer - Demo Booking',
+                    date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                    time: '14:30',
+                    pickupLocation: '123 Demo Street, Beverly Hills, CA 90210',
+                    destination: 'LAX Airport, Los Angeles, CA 90045',
+                    clientName: 'Demo Client',
+                    clientPhone: '+1 (555) 123-4567',
+                    clientEmail: 'demo@example.com',
+                    specialRequests: 'This is a simulated booking for demonstration purposes.',
+                    membershipId: null,
+                    totalPrice: 150,
+                    status: 'confirmed',
+                    paymentId: 'pi_demo_' + Math.random().toString(36),
+                    paymentStatus: 'paid',
+                    createdAt: new Date().toISOString(),
+                    paidAt: new Date().toISOString()
+                };
+
+                // Add to bookings
+                this.bookings.push(simulatedBooking);
+                
+                // Save to localStorage
+                localStorage.setItem('bookings', JSON.stringify(this.bookings));
+                
+                // Update display
+                this.renderBookings();
+                this.updateStats();
+                
+                // Show notification
+                this.showNewBookingNotification(simulatedBooking);
+            }
+
+            showNewBookingNotification(booking) {
+                this.showToast(`🚗 New Booking Received: ${booking.id}`, 'success', 8000);
+                
+                // Show browser notification if permission granted
+                if (Notification.permission === 'granted') {
+                    new Notification('New Booking - Elite Chauffeur', {
+                        body: `${booking.serviceName} for ${booking.clientName}`,
+                        icon: '/favicon.ico'
+                    });
+                }
+            }
+
+            updateStats() {
+                const today = new Date().toISOString().split('T')[0];
+                const todaysBookings = this.bookings.filter(b => b.date === today);
+                
+                this.stats.todaysBookings = todaysBookings.length;
+                this.stats.pendingAssignments = this.bookings.filter(b => b.status === 'confirmed').length;
+                this.stats.revenueToday = todaysBookings.reduce((sum, b) => sum + b.totalPrice, 0);
+
+                // Update display
+                document.getElementById('todays-bookings').textContent = this.stats.todaysBookings;
+                document.getElementById('pending-assignments').textContent = this.stats.pendingAssignments;
+                document.getElementById('revenue-today').textContent = `$${this.stats.revenueToday}`;
+                document.getElementById('active-chauffeurs').textContent = this.stats.activeChauffeurs;
+            }
+
+            updateLastUpdated() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                document.getElementById('last-updated').textContent = timeString;
+            }
+
+            startAutoRefresh() {
+                // Refresh every 30 seconds
+                setInterval(() => {
+                    this.refreshData();
+                }, 30000);
+                
+                // Update clock every second
+                setInterval(() => {
+                    this.updateLastUpdated();
+                }, 1000);
+            }
+
+            formatDate(dateString) {
+                return new Date(dateString).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+
+            formatTime(timeString) {
+                const [hours, minutes] = timeString.split(':');
+                const hour = parseInt(hours);
+                const ampm = hour >= 12 ? 'PM' : 'AM';
+                const displayHour = hour % 12 || 12;
+                return `${displayHour}:${minutes} ${ampm}`;
+            }
+
+            showToast(message, type = 'info', duration = 5000) {
+                const container = document.getElementById('toast-container');
+                if (!container) return;
+
+                const toast = document.createElement('div');
+                toast.className = `toast transform translate-x-full transition-transform duration-300 max-w-sm p-4 rounded-lg shadow-lg text-white`;
+                
+                switch (type) {
+                    case 'success':
+                        toast.classList.add('bg-green-600');
+                        break;
+                    case 'error':
+                        toast.classList.add('bg-red-600');
+                        break;
+                    case 'warning':
+                        toast.classList.add('bg-yellow-600');
+                        break;
+                    default:
+                        toast.classList.add('bg-luxury-gold', 'text-black');
+                }
+                
+                toast.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span>${message}</span>
+                        <button onclick="this.parentElement.parentElement.remove()" class="ml-2 hover:opacity-70">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+
+                container.appendChild(toast);
+
+                // Slide in
+                setTimeout(() => {
+                    toast.classList.remove('translate-x-full');
+                }, 100);
+
+                // Auto remove
+                setTimeout(() => {
+                    toast.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            toast.remove();
+                        }
+                    }, 300);
+                }, duration);
+            }
+        }
+
+        // Initialize admin demo
+        const adminDemo = new AdminDemo();
+
+        // Request notification permission
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+    </script>
+</body>
+</html>

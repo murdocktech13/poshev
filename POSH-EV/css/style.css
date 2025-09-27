@@ -1,0 +1,302 @@
+/* Custom Styles for Elite Chauffeur Services */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #cccccc;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse Animation for CTA */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Card Hover Effects */
+.service-card, .membership-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover, .membership-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+}
+
+.service-card::before, .membership-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.service-card:hover::before, .membership-card:hover::before {
+    left: 100%;
+}
+
+/* Flatpickr Custom Theme */
+.flatpickr-calendar {
+    background: #2a2a2a !important;
+    border: 1px solid #D4AF37 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.flatpickr-calendar .flatpickr-month {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+}
+
+.flatpickr-calendar .flatpickr-weekday {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+.flatpickr-calendar .flatpickr-day {
+    color: white !important;
+    border: 1px solid transparent !important;
+}
+
+.flatpickr-calendar .flatpickr-day:hover {
+    background: #ffffff !important;
+    color: black !important;
+}
+
+.flatpickr-calendar .flatpickr-day.selected {
+    background: #ffffff !important;
+    color: black !important;
+    border-color: #ffffff !important;
+}
+
+.flatpickr-calendar .flatpickr-day.disabled {
+    color: #666 !important;
+}
+
+/* Stripe Elements Styling */
+.StripeElement {
+    box-sizing: border-box;
+    height: 50px;
+    padding: 15px;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.5);
+    border-color: #ffffff;
+}
+
+.StripeElement--invalid {
+    border-color: #e53e3e;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #2a2a2a !important;
+}
+
+/* Form Validation */
+.form-error {
+    border-color: #e53e3e !important;
+    box-shadow: 0 0 0 1px #e53e3e !important;
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Success Animation */
+.success-checkmark {
+    animation: checkmark 0.6s ease-in-out;
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+/* Modal Animations */
+.modal-enter {
+    animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-exit {
+    animation: modalExit 0.3s ease-in;
+}
+
+@keyframes modalExit {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+    }
+}
+
+/* Price Display Animation */
+.price-slide-in {
+    animation: priceSlideIn 0.5s ease-out;
+}
+
+@keyframes priceSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-slide {
+    transition: all 0.3s ease;
+}
+
+/* Button Loading State */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .service-card, .membership-card {
+        margin-bottom: 1rem;
+    }
+    
+    .booking-form {
+        padding: 1rem !important;
+    }
+}
+
+/* High DPI Display Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .service-card, .membership-card {
+        border: 0.5px solid rgba(212, 175, 55, 0.3);
+    }
+}
+
+/* Focus Styles for Accessibility */
+button:focus, 
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    /* Already optimized for dark theme */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
